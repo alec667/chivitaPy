@@ -24,25 +24,28 @@ llamarA = {}
 
 inicio = time.time_ns()
 
-print("Sal de ahí chivita chivita, sal de ahí de ese lugar")
-act = "la chiva"
-for i in range(N):
-    rand = randint(0, len(animales) - 1)
-    prox = animales[rand]
-    llamarA[act] = prox
-    print(f"Hay que llamar a {prox} para que saque a {act}")
-    act = prox
-    remover = []
-    inspeccionar = "la chiva"
-    while inspeccionar in llamarA:
-        remover.insert(0, llamarA[inspeccionar] + " no quiere sacar a " + inspeccionar)
-        inspeccionar = llamarA[inspeccionar]
+try:
+    print("Sal de ahí chivita chivita, sal de ahí de ese lugar")
+    act = "la chiva"
+    for i in range(N):
+        rand = randint(0, len(animales) - 1)
+        prox = animales[rand]
+        llamarA[act] = prox
+        print(f"Hay que llamar a {prox} para que saque a {act}")
+        act = prox
+        remover = []
+        inspeccionar = "la chiva"
+        while inspeccionar in llamarA:
+            remover.insert(0, llamarA[inspeccionar] + " no quiere sacar a " + inspeccionar)
+            inspeccionar = llamarA[inspeccionar]
 
-    for index in remover:
-        print(index)
+        for index in remover:
+            print(index)
 
-    print("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar")
-    aux_list.append(animales.pop(rand))
+        print("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar")
+        aux_list.append(animales.pop(rand))
+except ValueError:
+    print("no hay mas animales")
 
 fin = time.time_ns()
 print(f"-------->Tiempo de ejecución: {(fin - inicio) / 1000000} milisegundos")
