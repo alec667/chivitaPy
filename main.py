@@ -1,3 +1,4 @@
+import time
 from random import randint
 
 animales = ["El lobo", "El toro", "El perro", "El león", "El caballo", "La vaca", "El gato", "El elefante", "El tigre",
@@ -19,6 +20,8 @@ animales = ["El lobo", "El toro", "El perro", "El león", "El caballo", "La vaca
 N = int(input("enter N: "))
 llamarA = {}
 
+inicio = time.time_ns()
+
 print("Sal de ahí chivita chivita, sal de ahí de ese lugar")
 act = "la chiva"
 for i in range(N):
@@ -36,3 +39,5 @@ for i in range(N):
         print(index)
 
     print("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar")
+fin = time.time_ns()
+print(f"-------->Tiempo de ejecución: {(fin - inicio) / 1000000} milisegundos")
