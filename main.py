@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from random import randint
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+animales = ["el lobo", "el toro", "el perro", "el leon"]
 
+N = int(input("enter N: "))
+llamarA = {}
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print("Sal de ahí chivita chivita, sal de ahí de ese lugar")
+act = "la chiva"
+for i in range(N):
+    prox = animales[randint(0, len(animales) - 1)]
+    llamarA[act] = prox
+    print(f"Hay que llamar a {prox} para que saque a {act}")
+    act = prox
+    remover = []
+    inspeccionar = "la chiva"
+    while inspeccionar in llamarA:
+        remover.insert(0, llamarA[inspeccionar] + " no quiere sacar a " + inspeccionar)
+        inspeccionar = llamarA[inspeccionar]
 
+    for index in remover:
+        print(index)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar")
