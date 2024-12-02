@@ -17,6 +17,8 @@ animales = ["El lobo", "El toro", "El perro", "El león", "El caballo", "La vaca
             "El delfín", "La foca", "El león marino", "El pingüino emperador", "La estrella de mar", "El erizo de mar",
             "La medusa", "El pez2", "El pez espada", "La manta raya", "El caballito de mar", "La anguila"]
 
+aux_list = []
+
 N = int(input("enter N: "))
 llamarA = {}
 
@@ -25,7 +27,8 @@ inicio = time.time_ns()
 print("Sal de ahí chivita chivita, sal de ahí de ese lugar")
 act = "la chiva"
 for i in range(N):
-    prox = animales[randint(0, len(animales) - 1)]
+    rand = randint(0, len(animales) - 1)
+    prox = animales[rand]
     llamarA[act] = prox
     print(f"Hay que llamar a {prox} para que saque a {act}")
     act = prox
@@ -39,5 +42,8 @@ for i in range(N):
         print(index)
 
     print("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar")
+    aux_list.append(animales.pop(rand))
+
 fin = time.time_ns()
 print(f"-------->Tiempo de ejecución: {(fin - inicio) / 1000000} milisegundos")
+animales = aux_list.copy()
